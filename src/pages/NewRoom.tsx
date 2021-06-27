@@ -10,6 +10,7 @@ import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase'
 
 import { verifyStringIsEmpty } from '../utils/validators';
+import toast, { Toaster } from 'react-hot-toast';
 
 export function NewRoom() {
   
@@ -30,6 +31,7 @@ export function NewRoom() {
   const  handleCreateRoom = async (event : FormEvent) => {
     event.preventDefault();
     if (verifyStringIsEmpty(newRoom)) {
+      toast('Digite o nome da sua sala.');
 			return;
 		}
 
@@ -50,6 +52,7 @@ export function NewRoom() {
 
   return (
     <div id="page-auth">
+      	<Toaster position="top-right"/>
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>

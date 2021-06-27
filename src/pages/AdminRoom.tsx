@@ -13,6 +13,7 @@ import { useRoom } from '../hooks/useRoom';
 import '../styles/room.scss'
 import { database } from '../services/firebase';
 
+
 type RoomParams = {
   id: string
 }
@@ -53,6 +54,7 @@ export function AdminRoom() {
 
   return(
     <div id="page-room">
+     
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />

@@ -9,6 +9,7 @@ import { verifyStringIsEmpty } from '../utils/validators';
 import { database } from '../services/firebase';
 import { Question } from '../components/Question';
 import { useRoom } from '../hooks/useRoom';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 interface RoomRouteParams {
@@ -30,6 +31,7 @@ export const Room = () => {
 		event.preventDefault();
 
 		if (verifyStringIsEmpty(newQuestion)) {
+			toast('Digite sua pergunta.');
 			return;
 		}
 
@@ -80,7 +82,9 @@ export const Room = () => {
 
 	}
 	return (
+		
 		<div id="page-room">
+			<Toaster position="top-right"/>
 
 			<header>
 				<div className="content">
