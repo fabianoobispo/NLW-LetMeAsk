@@ -43,6 +43,11 @@ export function Home(){
 			return;
 		}
 
+        if(roomRef.val().endedAt) {
+            alert('Sala foi fechada pelo admin.')
+            return
+          }
+
 		history.push(`/rooms/${roomCode}`);
 	}
  

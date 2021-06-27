@@ -36,13 +36,11 @@ export const useRoom = (roomId: string) => {
 
 	useEffect(() => {
 		const roomRef = database.ref(`rooms/${roomId}`);
-		/*
-			Read firebase realtime database docs to increase performance of this event.
-			Use childAdded/removed event instead of all values 
-		*/
+
 		roomRef.on('value', room => {
 			const databaseRoom = room.val();
 			const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
+			
 			const parsedQuestions = Object.entries(firebaseQuestions).map(([key, val]) => ({
 				id: key,
 				content: val.content,
